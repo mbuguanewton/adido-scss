@@ -14,13 +14,8 @@ function isElementInViewport(el) {
         rect.bottom > 0 &&
         rect.right > 0 &&
         rect.left <
-            (window.innerWidth ||
-                document.documentElement
-                    .clientWidth) /* or $(window).width() */ &&
-        rect.top <
-            (window.innerHeight ||
-                document.documentElement
-                    .clientHeight) /* or $(window).height() */
+            (window.innerWidth || document.documentElement.clientWidth) &&
+        rect.top < (window.innerHeight || document.documentElement.clientHeight)
     )
 }
 
@@ -56,10 +51,7 @@ const scrollToNextArticle = () => {
         articles[articles.length - 1]
     )
 
-    console.log('In viewport: ', lastArticleInViewPort)
-
     if (lastArticleInViewPort) {
-        console.log('last article is in viewport')
         arrowRight.classList.add('disabled')
     }
 }
@@ -88,10 +80,7 @@ const scrollToPreviousArticle = () => {
 
     const firstArticleInViewPort = isElementInViewport(articles[0])
 
-    console.log('In viewport: ', firstArticleInViewPort)
-
     if (firstArticleInViewPort) {
-        console.log('first article is in viewport')
         arrowLeft.classList.add('disabled')
     }
 }
