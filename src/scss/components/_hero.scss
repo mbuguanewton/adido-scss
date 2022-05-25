@@ -1,0 +1,57 @@
+@use '../abstracts' as abs;
+
+.hero {
+    height: 300px;
+    @include abs.flexCenter(column);
+    align-items: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    background: linear-gradient(
+            180deg,
+            rgba(0, 8, 20, 0.7) 0%,
+            rgba(0, 8, 20, 0) 32.21%
+        ),
+        linear-gradient(
+            358.84deg,
+            rgba(0, 8, 20, 0.7) 20.13%,
+            rgba(0, 8, 20, 0) 47.19%
+        );
+
+    & > p {
+        text-transform: uppercase;
+        font-size: 15px;
+        color: abs.$accent-color;
+        letter-spacing: 0.14em;
+        font-weight: 700;
+
+        &::before {
+            content: '\2014';
+            margin-right: 10px;
+            color: #d9c47f;
+        }
+
+        &::after {
+            content: '\2014';
+            margin-left: 10px;
+            color: #d9c47f;
+        }
+    }
+
+    & > h1 {
+        font-size: 50px;
+        font-weight: bold;
+        color: #fff;
+        margin-top: 10px;
+        font-family: abs.$secondary-font, serif;
+    }
+
+    @media screen and (max-width: 768px) {
+        height: auto;
+        min-height: 200px;
+        & > h1 {
+            font-size: 30px;
+        }
+    }
+}

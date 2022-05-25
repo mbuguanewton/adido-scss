@@ -1,0 +1,25 @@
+@use './abstracts/' as *;
+@use './components/' as *;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 15px;
+}
+
+body {
+    font-family: $primary-font, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+}
+
+.disabled {
+    pointer-events: none !important;
+    opacity: 0.5 !important;
+    color: #ccc !important;
+}

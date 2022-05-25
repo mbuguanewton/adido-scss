@@ -1,0 +1,146 @@
+@use '../abstracts' as abs;
+
+.articles {
+    &__wrapper {
+        width: 90%;
+        margin: 0 auto;
+
+        &--header {
+            padding: 40px 0;
+            @include abs.flex(row, space-between, center);
+            & > h3 {
+                letter-spacing: 0.14em;
+                text-align: center;
+            }
+
+            & > button {
+                background: transparent;
+                border: none;
+
+                &:first-child {
+                    transform: rotate(180deg);
+                }
+            }
+
+            @media screen and (max-width: 768px) {
+                padding: 10px 0;
+            }
+        }
+
+        &--list {
+            width: auto;
+            height: 100%;
+            margin-top: 20px;
+            overflow: hidden;
+
+            &-items {
+                @include abs.flex(row, space-between, flex-start);
+                gap: 1rem;
+                list-style: none;
+                overflow-x: scroll;
+
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+
+                // @media screen and (max-width: 768px) {
+                //     @include abs.grid(1rem, 1);
+                //     margin: 0;
+                // }
+
+                .article {
+                    min-width: 30%;
+
+                    &__wrapper {
+                        text-decoration: none;
+                        color: abs.$dark-gray;
+
+                        &--image {
+                            height: 40vh;
+                            position: relative;
+
+                            & > img {
+                                width: 100%;
+                                height: 100%;
+                                object-fit: cover;
+                                object-position: center;
+                            }
+
+                            &-overlay {
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100%;
+                                padding: 10px;
+                                @include abs.flex(row, flex-start, flex-start);
+
+                                & > span {
+                                    color: white;
+                                    padding: 5px 10px;
+                                    text-transform: uppercase;
+                                    border-radius: 3px;
+                                    background: abs.$dark-gray;
+                                    font-size: 12px;
+                                }
+                            }
+                        }
+                        &--content {
+                            padding: 20px;
+                            & > h4 {
+                                line-height: 28px;
+                                font-size: 1.2rem;
+                                font-family: abs.$secondary-font, serif;
+                                color: abs.$dark-gray;
+                            }
+
+                            &-dates {
+                                @include abs.flex(row, flex-start, center);
+                                gap: 1rem;
+                                margin: 20px 0;
+                                padding: 10px;
+                                color: lighten(abs.$dark-gray, 40%);
+                                border-top: 1px solid
+                                    lighten(abs.$dark-gray, 80%);
+                                border-bottom: 1px solid
+                                    lighten(abs.$dark-gray, 80%);
+
+                                & > div {
+                                    @include abs.flex(row, center, center);
+
+                                    & > p {
+                                        margin-left: 10px;
+                                    }
+                                }
+                            }
+
+                            &-description {
+                                margin: 10px 0;
+                                color: lighten(abs.$dark-gray, 30%);
+                            }
+
+                            &-action {
+                                text-decoration: underline;
+                                color: abs.$dark-gray;
+                                text-transform: uppercase;
+                                font-weight: bold;
+                            }
+
+                            @media screen and (max-width: 768px) {
+                                padding: 10px 0;
+                            }
+                        }
+                    }
+
+                    @media screen and (max-width: 768px) {
+                        min-width: 100%;
+                    }
+
+                    @media screen and (min-width: 769px) and (max-width: 1024px) {
+                        min-width: 50%;
+                    }
+                }
+            }
+        }
+    }
+}

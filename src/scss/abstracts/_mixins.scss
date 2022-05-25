@@ -1,0 +1,26 @@
+@mixin flexCenter($direction: row) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flex($direction: row, $justify: space-between, $align: center) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin grid($gap: 1rem, $num_rows: 3) {
+    display: grid;
+    grid-gap: $gap;
+    grid-template-columns: repeat($num_rows, 1fr);
+}
+
+// translate transform
+@mixin transLate {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
