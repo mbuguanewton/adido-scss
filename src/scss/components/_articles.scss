@@ -16,6 +16,7 @@
             & > button {
                 background: transparent;
                 border: none;
+                cursor: pointer;
 
                 &:first-child {
                     transform: rotate(180deg);
@@ -42,11 +43,6 @@
                 &::-webkit-scrollbar {
                     display: none;
                 }
-
-                // @media screen and (max-width: 768px) {
-                //     @include abs.grid(1rem, 1);
-                //     margin: 0;
-                // }
 
                 .article {
                     min-width: 30%;
